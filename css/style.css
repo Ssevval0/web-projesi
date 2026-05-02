@@ -1,0 +1,93 @@
+
+:root {
+    --primary-color: #4361ee;
+    --dark-color: #2b2d42;
+    --light-bg: #f8f9fa;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-color);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: rgba(43, 45, 66, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-brand span {
+    color: var(--primary-color);
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: 20px;
+    padding: 8px 20px !important;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.hero-section {
+    padding: 60px 0;
+    background: radial-gradient(circle at top right, #e0e7ff, transparent);
+}
+
+.profile-img {
+    width: 380px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 10px solid white;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #4361ee, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cv-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.education-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+.progress {
+    border-radius: 10px;
+    background-color: #e9ecef;
+    height: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    .profile-img {
+        width: 100%;
+        max-width: 300px;
+    }
+    .hero-section {
+        text-align: center;
+    }
+}
