@@ -7,24 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Giriş Yap butonu için diğer sayfalardaki özel stil */
+        .login-btn {
+            background-color: #0d6efd;
+            color: white !important;
+            border-radius: 5px;
+            padding: 8px 15px !important;
+            margin-left: 10px;
+        }
+        .login-btn:hover { background-color: #0b5ed7; }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">SEVİM ŞEVVAL <span>ACI</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Hakkımda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ozgecmis.php">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sehrimsayfasi.html">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                    <li class="nav-item"><a class="nav-link login-btn" href="login.html">Giriş Yap</a></li>
-                </ul>
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link active" href="index.html">Hakkında</a>
+                    <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                    <a class="nav-link" href="sehrimsayfasi.html">Şehrim</a>
+                    <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
+                    <a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a>
+                    <a class="nav-link" href="iletisim.html">İletişim</a>
+                    <a class="nav-link login-btn" href="login.php">Giriş Yap</a>
+                </div>
             </div>
         </div>
     </nav>

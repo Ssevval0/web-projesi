@@ -34,16 +34,34 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Giriş Yap butonu için özel stil */
+        .login-btn {
+            background-color: #0d6efd;
+            color: white !important;
+            border-radius: 5px;
+            padding: 8px 15px !important;
+            margin-left: 10px;
+        }
+        .login-btn:hover { background-color: #0b5ed7; }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">SEVİM ŞEVVAL <span>ACI</span></a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.html">Hakkında</a>
-                <a class="nav-link active" href="ozgecmis.html">Özgeçmiş</a>
-                <a class="nav-link" href="malatya.html">Şehrim</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link" href="index.html">Hakkında</a>
+                    <a class="nav-link active" href="ozgecmis.html">Özgeçmiş</a>
+                    <a class="nav-link" href="sehrimsayfasi.html">Şehrim</a>
+                    <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
+                    <a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a>
+                    <a class="nav-link" href="iletisim.html">İletişim</a>
+                    <a class="nav-link login-btn" href="login.php">Giriş Yap</a>
+                </div>
             </div>
         </div>
     </nav>

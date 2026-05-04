@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kültürel Mirasımız: Arslantepe | Sevim Şevval Acı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; }
+        
+        .heritage-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('fotograflar/img/arslantepe.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 150px 0;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #0d6efd;
+            border-radius: 2px;
+        }
+        .section-title-center::after { left: 50%; transform: translateX(-50%); }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: none;
+            transition: 0.3s;
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
+        .table-custom { border-radius: 10px; overflow: hidden; }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: zoom-in;
+            transition: 0.3s;
+        }
+        .gallery-img:hover { opacity: 0.8; transform: scale(1.02); }
+
+        /* Giriş Yap butonu için özel stil */
+        .login-btn {
+            background-color: #0d6efd;
+            color: white !important;
+            border-radius: 5px;
+            padding: 8px 15px !important;
+            margin-left: 10px;
+        }
+        .login-btn:hover { background-color: #0b5ed7; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SEVİM ŞEVVAL <span>ACI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link" href="index.html">Hakkında</a>
+                    <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                    <a class="nav-link" href="sehrimsayfasi.html">Şehrim</a>
+                    <a class="nav-link active" href="mirasimiz.html">Mirasımız</a>
+                    <a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a>
+                    <a class="nav-link" href="iletisim.html">İletişim</a>
+                    <a class="nav-link login-btn" href="login.php">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="heritage-hero text-center">
+        <div class="container">
+            <h1 class="display-2 fw-bold text-gradient">Arslantepe Höyüğü</h1>
+            <p class="lead text-white-50">Dünyanın İlk Bürokratik Devleti ve Kerpiç Sarayı: Malatya</p>
+            <span class="badge bg-primary px-3 py-2 rounded-pill shadow">UNESCO Dünya Mirası</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row mb-5 align-items-center">
+            <section class="col-lg-7">
+                <article class="p-4 bg-white content-card border-start border-primary border-4 mb-4 mb-lg-0">
+                    <h2 class="section-title">Medeniyetin Beşiği</h2>
+                    <p>Malatya'nın 7 km kuzeydoğusunda yer alan Arslantepe, M.Ö. 5000 yıllarından M.S. 11. yüzyıla kadar kesintisiz yerleşim görmüştür. Burası, aristokrasinin doğduğu, dünyanın ilk saray kompleksinin inşa edildiği ve **bürokrasinin mühürlerle kayıt altına alındığı** ilk merkez olarak insanlık tarihine adını yazdırmıştır.</p>
+                </article>
+            </section>
+            
+            <aside class="col-lg-5">
+                <div class="content-card p-4">
+                    <h3 class="fw-bold mb-3 h5 text-center">Miras Bilgi Kartı</h3>
+                    <table class="table table-custom table-striped table-hover shadow-sm mb-0">
+                        <tbody class="small">
+                            <tr><th>Dönem</th><td>Geç Kalkolitik</td></tr>
+                            <tr><th>Kazı Başlangıcı</th><td>1932 (Louis Delaporte)</td></tr>
+                            <tr><th>UNESCO Tarihi</th><td>26 Temmuz 2021</td></tr>
+                            <tr><th>Buluntular</th><td>İlk Kılıçlar, Saray, Mühürler</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aside>
+        </div>
+
+        <section class="my-5">
+            <h2 class="section-title section-title-center text-center">Kazılardan Eşsiz Kareler</h2>
+            <p class="text-center text-muted mb-5">Arslantepe kazılarında gün yüzüne çıkan binlerce yıllık tarih </p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="content-card p-2 text-center">
+                        <img src="fotograflar/img/hoyuk.jpg" class="gallery-img rounded" alt="Arslantepe Saray Yapısı" data-bs-toggle="modal" data-bs-target="#galleryModal1">
+                        <p class="mt-2 small text-muted">Dünyanın En Eski Kerpiç Sarayı</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content-card p-2 text-center">
+                        <img src="fotograflar/img/damgalar.jpg" class="gallery-img rounded" alt="Arslantepe Mühür Baskıları" data-bs-toggle="modal" data-bs-target="#galleryModal2">
+                        <p class="mt-2 small text-muted">Bürokrasinin Kanıtı: Mühürler</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="content-card p-2 text-center">
+                        <img src="fotograflar/img/muhurler.jpg" class="gallery-img rounded" alt="Arslantepe Buluntuları" data-bs-toggle="modal" data-bs-target="#galleryModal3">
+                        <p class="mt-2 small text-muted">Mühürler ve Günlük Eşyalar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="galleryModal1" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><img src="fotograflar/img/hoyuk.jpg" class="img-fluid w-100 rounded"></div></div></div></div>
+    <div class="modal fade" id="galleryModal2" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><img src="fotograflar/img/damgalar.jpg" class="img-fluid w-100 rounded"></div></div></div></div>
+    <div class="modal fade" id="galleryModal3" tabindex="-1"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><img src="fotograflar/img/muhurler.jpg" class="img-fluid w-100 rounded"></div></div></div></div>
+
+    <footer class="text-center py-4 border-top mt-5 bg-white shadow">
+        <p class="text-secondary mb-0">&copy; 2026 - Sevim Şevval Acı | Sakarya Üniversitesi</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
