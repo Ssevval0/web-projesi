@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İletişim | Sevim Şevval Acı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <style>
+        body { background-color: #f4f7f6; font-family: 'Poppins', sans-serif; }
+        .contact-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 50px; }
+        .btn-check-js { background-color: #ffc107; border: none; font-weight: bold; }
+        .btn-check-vue { background-color: #28a745; color: white; border: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="row justify-content-center">
+        <div class="col-md-7 contact-box">
+            <h2 class="text-center mb-4">İletişim Formu</h2>
+            
+            <form id="myContactForm" action="iletisim_kontrol.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Ad Soyad:</label>
+                    <input type="text" name="ad_soyad" v-model="f.ad" class="form-control" placeholder="Adınızı girin">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">E-Posta:</label>
+                    <input type="text" name="email" v-model="f.mail" class="form-control" placeholder="Örn: isim@mail.com">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Telefon:</label>
+                    <input type="text" name="tel" v-model="f.tel" class="form-control" placeholder="05XXXXXXXXX" maxlength="11">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Mesajınız:</label>
+                    <textarea name="mesaj" v-model="f.mesaj" class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" onclick="jsKontrol()" class="btn btn-check-js w-100">Kontrol Et (JS)</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" @click="vueKontrol" class="btn btn-check-vue w-100">Kontrol Et (Vue)</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 1. BUTON: JavaScript Kontrolü
+    function jsKontrol() {
+        var ad = document.getElementsByName('ad_soyad')[0].value;
+        var mail = document.getElementsByName('email')[0].value;
+        var tel = document.getElementsByName('tel')[0].value;
+        var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // E-posta kuralı
+
+        if (ad == "" || mail == "" || tel == "") {
+            alert("Hata: Tüm alanları doldurmak zorunludur!");
+        } else if (!mailTaslak.test(mail)) {
+            alert("Hata: E-posta adresi geçersiz formatta!");
+        } else if (isNaN(tel)) {
+            alert("Hata: Telefon sadece rakam içermelidir!");
+        } else if (tel.length !== 11) {
+            alert("Hata: Telefon numarası tam olarak 11 hane olmalıdır! (Girdiğiniz: " + tel.length + ")");
+        } else {
+            alert("JS Kontrolü Başarılı! Bilgiler PHP'ye gönderiliyor.");
+            document.getElementById('myContactForm').submit();
+        }
+    }
+
+    // 2. BUTON: Vue.js Kontrolü
+    new Vue({
+        el: '#app',
+        data: {
+            f: { ad: '', mail: '', tel: '', mesaj: '' }
+        },
+        methods: {
+            vueKontrol() {
+                var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!this.f.ad || !this.f.mail || !this.f.tel) {
+                    alert("Vue: Boş alan bırakmayınız.");
+                } else if (!mailTaslak.test(this.f.mail)) {
+                    alert("Vue: E-posta geçerli değil.");
+                } else if (this.f.tel.length !== 11 || isNaN(this.f.tel)) {
+                    alert("Vue: Telefon tam 11 haneli bir sayı olmalıdır.");
+                } else {
+                    alert("Vue Kontrolü Başarılı! Bilgiler PHP'ye gönderiliyor.");
+                    document.getElementById('myContactForm').submit();
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
