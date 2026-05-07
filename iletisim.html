@@ -2,102 +2,226 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | Sevim Şevval Acı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <style>
-        body { background-color: #f4f7f6; font-family: 'Poppins', sans-serif; }
-        .contact-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 50px; }
-        .btn-check-js { background-color: #ffc107; border: none; font-weight: bold; }
-        .btn-check-vue { background-color: #28a745; color: white; border: none; font-weight: bold; }
+        :root {
+            --ana-siyah: #212529;
+            --ana-gri: #343a40;
+            --vurgu-mavi: #0d6efd;
+            --arka-plan: #f0f2f5;
+            --aktif-link-beyaz: #ffffff; /* Aktif link rengi için yeni değişken */
+        }
+
+        body { 
+            background-color: var(--arka-plan); 
+            font-family: 'Poppins', sans-serif; 
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: var(--ana-siyah) !important;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: white !important;
+            text-decoration: none;
+        }
+        .navbar-brand span { color: var(--vurgu-mavi); }
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-weight: 400;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        /* Aktif linkin rengini mavi yerine beyaz yapıyoruz */
+        .nav-link.active, .nav-link:hover {
+            color: var(--aktif-link-beyaz) !important;
+        }
+        
+        .main-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 10px;
+        }
+        
+        .contact-box { 
+            background: white; 
+            padding: 40px 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1); 
+            width: 100%;
+            max-width: 650px;
+            border-top: 8px solid var(--ana-siyah);
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+        }
+        .form-control:focus {
+            border-color: var(--vurgu-mavi);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+            outline: none;
+        }
+
+        .btn-custom { 
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            border: none;
+            color: white;
+        }
+        .btn-check-js { background-color: var(--ana-gri); }
+        .btn-check-js:hover { background-color: var(--vurgu-mavi); }
+        .btn-check-vue { background-color: var(--ana-siyah); }
+        .btn-check-vue:hover { background-color: var(--vurgu-mavi); }
+
+        .login-btn {
+            background-color: var(--vurgu-mavi);
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px 20px !important;
+        }
+
+        @media (max-width: 991px) {
+            .nav-link { margin: 10px 0; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container" id="app">
-    <div class="row justify-content-center">
-        <div class="col-md-7 contact-box">
-            <h2 class="text-center mb-4">İletişim Formu</h2>
-            
-            <form id="myContactForm" action="iletisim_kontrol.php" method="POST">
-                <div class="mb-3">
-                    <label class="form-label">Ad Soyad:</label>
-                    <input type="text" name="ad_soyad" v-model="f.ad" class="form-control" placeholder="Adınızı girin">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SEVİM ŞEVVAL <span>ACI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrimsayfasi.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link login-btn ms-lg-3" href="login.php">Giriş Yap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container d-flex justify-content-center">
+            <div class="contact-box">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Bana Ulaşın ✉️</h2>
+                    <p class="text-muted small">Fikirlerini paylaşmak için bir mesaj bırakabilirsin. ✨</p>
                 </div>
                 
-                <div class="mb-3">
-                    <label class="form-label">E-Posta:</label>
-                    <input type="text" name="email" v-model="f.mail" class="form-control" placeholder="Örn: isim@mail.com">
-                </div>
+                <form action="iletisim_kontrol.php" method="POST" id="app">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">👤 Ad Soyad</label>
+                            <input type="text" name="ad_soyad" v-model="f.ad" class="form-control" placeholder="Adınızı girin">
+                        </div>
+                        
+                        <div class="col-12">
+                            <label class="form-label">📧 E-Posta</label>
+                            <input type="text" name="email" v-model="f.mail" class="form-control" placeholder="isim@mail.com">
+                        </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Telefon:</label>
-                    <input type="text" name="tel" v-model="f.tel" class="form-control" placeholder="05XXXXXXXXX" maxlength="11">
-                </div>
+                        <div class="col-12">
+                            <label class="form-label">📞 Telefon (11 Hane)</label>
+                            <input type="text" name="tel" v-model="f.tel" class="form-control" placeholder="05XXXXXXXXX" maxlength="11">
+                        </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Mesajınız:</label>
-                    <textarea name="mesaj" v-model="f.mesaj" class="form-control" rows="3"></textarea>
-                </div>
+                        <div class="col-12">
+                            <label class="form-label">💬 Mesaj</label>
+                            <textarea name="mesaj" v-model="f.mesaj" class="form-control" rows="4" placeholder="Nasıl yardımcı olabilirim?"></textarea>
+                        </div>
 
-                <div class="row">
-                    <div class="col-6">
-                        <button type="button" onclick="jsKontrol()" class="btn btn-check-js w-100">Kontrol Et (JS)</button>
+                        <div class="col-12 mt-4">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <button type="button" onclick="jsKontrol()" class="btn-custom btn-check-js">
+                                        <span>⚙️</span> JS Denetle
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" @click="vueKontrol" class="btn-custom btn-check-vue">
+                                        <span>⚡</span> Vue Denetle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <button type="button" @click="vueKontrol" class="btn btn-check-vue w-100">Kontrol Et (Vue)</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</div>
+    </main>
 
-<script>
-    // 1. BUTON: JavaScript Kontrolü
-    function jsKontrol() {
-        var ad = document.getElementsByName('ad_soyad')[0].value;
-        var mail = document.getElementsByName('email')[0].value;
-        var tel = document.getElementsByName('tel')[0].value;
-        var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // E-posta kuralı
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="text-secondary mb-0">&copy; 2026 - Sevim Şevval Acı | Sakarya Üniversitesi</p>
+    </footer>
 
-        if (ad == "" || mail == "" || tel == "") {
-            alert("Hata: Tüm alanları doldurmak zorunludur!");
-        } else if (!mailTaslak.test(mail)) {
-            alert("Hata: E-posta adresi geçersiz formatta!");
-        } else if (isNaN(tel)) {
-            alert("Hata: Telefon sadece rakam içermelidir!");
-        } else if (tel.length !== 11) {
-            alert("Hata: Telefon numarası tam olarak 11 hane olmalıdır! (Girdiğiniz: " + tel.length + ")");
-        } else {
-            alert("JS Kontrolü Başarılı! Bilgiler PHP'ye gönderiliyor.");
-            document.getElementById('myContactForm').submit();
-        }
-    }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function jsKontrol() {
+            var f = document.getElementById('app');
+            var ad = f.elements['ad_soyad'].value;
+            var mail = f.elements['email'].value;
+            var tel = f.elements['tel'].value;
+            var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
 
-    // 2. BUTON: Vue.js Kontrolü
-    new Vue({
-        el: '#app',
-        data: {
-            f: { ad: '', mail: '', tel: '', mesaj: '' }
-        },
-        methods: {
-            vueKontrol() {
-                var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                if (!this.f.ad || !this.f.mail || !this.f.tel) {
-                    alert("Vue: Boş alan bırakmayınız.");
-                } else if (!mailTaslak.test(this.f.mail)) {
-                    alert("Vue: E-posta geçerli değil.");
-                } else if (this.f.tel.length !== 11 || isNaN(this.f.tel)) {
-                    alert("Vue: Telefon tam 11 haneli bir sayı olmalıdır.");
-                } else {
-                    alert("Vue Kontrolü Başarılı! Bilgiler PHP'ye gönderiliyor.");
-                    document.getElementById('myContactForm').submit();
-                }
+            if (!ad || !mail || !tel) {
+                alert("⚠️ Lütfen zorunlu alanları doldurun!");
+            } else if (!mailTaslak.test(mail)) {
+                alert("📧 E-posta formatı hatalı!");
+            } else if (isNaN(tel) || tel.length !== 11) {
+                alert("📞 Telefon 11 haneli bir sayı olmalıdır!");
+            } else {
+                alert("✅ JS Kontrolü Başarılı!");
+                f.submit();
             }
         }
-    });
-</script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                f: { ad: '', mail: '', tel: '', mesaj: '' }
+            },
+            methods: {
+                vueKontrol() {
+                    var mailTaslak = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!this.f.ad || !this.f.mail || !this.f.tel) {
+                        alert("Vue ⚠️: Alanlar boş bırakılamaz.");
+                    } else if (!mailTaslak.test(this.f.mail)) {
+                        alert("Vue 📧: Geçersiz e-posta.");
+                    } else if (this.f.tel.length !== 11 || isNaN(this.f.tel)) {
+                        alert("Vue 📞: Telefonu kontrol edin.");
+                    } else {
+                        alert("Vue ✅: Kontrol Başarılı!");
+                        this.$el.submit();
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
