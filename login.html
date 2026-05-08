@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap | Sevim Şevval Acı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --ana-siyah: #212529;
+            --ana-gri: #343a40;
+            --vurgu-mavi: #0d6efd;
+            --arka-plan: #f8f9fa;
+        }
+
+        body { 
+            background-color: var(--arka-plan); 
+            font-family: 'Poppins', sans-serif; 
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: var(--ana-siyah) !important;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: white !important;
+            text-decoration: none;
+        }
+        .navbar-brand span { color: var(--vurgu-mavi); }
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-weight: 400;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+
+        /* Giriş Yap Butonu Stili */
+        .login-btn {
+            background-color: var(--vurgu-mavi);
+            color: white !important;
+            border-radius: 8px;
+            padding: 8px 20px !important;
+            transition: 0.3s;
+        }
+        .login-btn:hover {
+            background-color: #0b5ed7 !important;
+            transform: scale(1.05);
+        }
+
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-box { 
+            background: white; 
+            padding: 40px 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+            width: 100%;
+            max-width: 450px;
+            border-bottom: 6px solid var(--ana-siyah);
+            transition: 0.3s;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+        }
+        .form-control:focus {
+            border-color: var(--vurgu-mavi);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+            outline: none;
+        }
+
+        .btn-submit { 
+            background-color: var(--ana-siyah);
+            color: white;
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 600;
+            width: 100%;
+            border: none;
+            transition: 0.4s;
+            margin-top: 15px;
+        }
+        .btn-submit:hover {
+            background-color: var(--vurgu-mavi);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 991px) {
+            .nav-link { text-align: center; margin: 10px 0; }
+            .login-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SEVİM ŞEVVAL <span>ACI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrimsayfasi.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link login-btn ms-lg-3 active" href="login.html">Giriş Yap</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Giriş Paneli 🔐</h2>
+                <p class="text-muted small">Öğrenci maili ve şifrenizle devam edin.</p>
+            </div>
+
+            <form id="loginForm" action="login_kontrol.php" method="POST" onsubmit="return validateLogin()">
+                <div class="mb-3">
+                    <label class="form-label fw-bold small">📧 E-Posta</label>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="b2412100001@sakarya.edu.tr">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold small">🔑 Şifre</label>
+                    <input type="password" name="sifre" id="sifre" class="form-control" placeholder="Öğrenci Numaranız">
+                </div>
+
+                <button type="submit" class="btn-submit">Giriş Yap ✨</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function validateLogin() {
+            var email = document.getElementById('email').value;
+            var sifre = document.getElementById('sifre').value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@sakarya\.edu\.tr$/;
+
+            if (email.trim() === "" || sifre.trim() === "") {
+                alert("⚠️ Hata: Lütfen tüm alanları doldurunuz.");
+                return false;
+            }
+
+            if (!email.match(emailPattern)) {
+                alert("📧 Hata: Sadece @sakarya.edu.tr uzantılı öğrenci mailleri kabul edilmektedir.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>
